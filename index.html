@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Marksheet App</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>MarkSheet App</h1>
+    </div>
+    <div class="main">
+
+        <div class="flexbox">
+
+            <form onsubmit="calculate(); return false;">
+                <!-- <input class="eng1" placeholder="English Marks OutOf 100" readonly id="English">  -->
+
+                <label for="English">English:</label>
+                <input type="number" min="1" max="100" required placeholder="EnterYourTotalMarks" id="English">
+                <br>
+                <br>
+                <label for="Urdu">Urdu:</label>
+                <input class="urdu" type="number" min="1" max="100" required placeholder="EnterYourTotalMarks"
+                    id="Urdu">
+                <br>
+                <br>
+                <label for="Maths">Maths:</label>
+                <input class="math" type="number" min="1" max="100" required placeholder="EnterYourTotalMarks"
+                    id="Maths">
+                <br>
+                <br>
+                <label for="Science">Science:</label>
+                <input class="sci2" type="number" min="1" max="100" required placeholder="EnterYourTotalMarks"
+                    id="Science"> <br>
+                <br>
+
+                <label for="Biology">Biology:</label>
+                <input type="number" min="1" max="100" required placeholder="EnterYourTotalMarks" id="Biology"> <br>
+                <br>
+
+                <label for="Chemistry">Chemist:</label>
+                <input type="number" min="1" max="100" required placeholder="EnterYourTotalMarks" id="Chemistry"> <br>
+                <br>
+                <label for="Physics">Physics:</label>
+                <input class="phy" type="number" min="1" max="100" required placeholder="EnterYourTotalMarks"
+                    id="Physics"> <br>
+                <br>
+                <label for="Sindhi">Sindhi:</label>
+                <input class="sin" type="number" min="1" max="100" required placeholder="EnterYourTotalMarks"
+                    id="Sindhi"> <br>
+                <br>
+                <label for="Computer">Compu:</label>
+                <input type="number" min="1" max="100" required placeholder="EnterYourTotalMarks" id="Computer"> <br>
+                <br>
+                <label for="Islamiat">Islamiat:</label>
+                <input type="number" min="1" max="100" required placeholder="EnterYourTotalMarks" id="Islamiat"> <br>
+                <br>
+
+                <button class="but" type="submit">calculate</button>
+
+            </form>
+        </div>
+        <div class="result">
+            <h2>Your Result Is Here....</h2>
+            <P id="Result"></P>
+            <P id="ObtainedMarks"></P>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            let totalMarks = 1000;
+            let English = +document.querySelector("#English").value;
+            let Urdu = +document.querySelector("#Urdu").value;
+            let Maths = +document.querySelector("#Maths").value;
+            let Science = +document.querySelector("#Science").value;
+            let Biology = +document.querySelector("#Biology").value;
+            let Chemistry = +document.querySelector("#Chemistry").value;
+            let Physics = +document.querySelector("#Physics").value;
+            let Sindhi = +document.querySelector("#Sindhi").value;
+            let Computer = +document.querySelector("#Computer").value;
+            let Islamiat = +document.querySelector("#Islamiat").value;
+            let ObtainedMarks = English + Maths + Science + Urdu + Biology + Chemistry + Physics + Sindhi + Computer + Islamiat;
+            let Result = ObtainedMarks * 100 / totalMarks;
+
+            document.querySelector("#ObtainedMarks").innerHTML = `Your totalMarks are here <b>${ObtainedMarks}</b>`;
+            // if (ObtainedMarks > 1000) { document.querySelector("#ObtainedMarks").innerHTML = "Error" }
+            //    if (Result >100){document.querySelector("#Result").innerHTML = `error`}
+            document.querySelector("#Result").innerHTML = `you have got ${Result}%`;
+
+
+            if (ObtainedMarks > 900) {
+                document.querySelector("#result").innerHTML =
+                    "<b>A very Big Congratulations!</b>" + "You Have Got <b>A1</b>-Grade.";
+
+            } else if (ObtainedMarks > 800) {
+                document.querySelector("#result").innerHTML = "You Have Got <b>A</b>-Grade.";
+
+            }
+
+            else if (ObtainedMarks > 700) {
+                document.querySelector("#result")
+                    .innerHTML = "You Have Got <b>B</b>-Grade.";
+            }
+
+            else if (ObtainedMarks > 600) {
+                document.querySelector("#result")
+                    .innerHTML = "<b>Passed!</b>" + "You Have Got <b>C</b>-Grade.";
+
+            } else if (ObtainedMarks > 500) {
+                document.querySelector("#result")
+                    .innerHTML = "<b>Passed!</b>" + "You Have Got <b>D</b>-Grade.";
+            } else if (ObtainedMarks > 400) {
+                document.querySelector("#result")
+                    .innerHTML = "<b>Passed!</b>" + "You Have Got <b>E</b>-Grade.";
+            } else {
+                document.querySelector("#result").innerHTML = "<b>Sorry!</b>" + "You are <b>Failed</b>";
+            }
+        }
+        console.log(Result);
+        //  alert(Result);
+    </script>
+
+</body>
+
+</html>
